@@ -79,7 +79,3 @@ snippets_inline_by_word_tail = false # suggest snippets by WORD tail, for exampl
 feature_unicode_input = false        # enable "unicode input"
 feature_paths = false                # enable path completion
 feature_citations = false            # enable citation completion (only on `citation` feature enabled)
-
-[language-server.scls.environment]
-RUST_LOG = "info,simple-completion-language-server=info"
-LOG_FILE = "/tmp/completion.log"
