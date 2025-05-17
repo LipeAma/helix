@@ -1,0 +1,55 @@
+theme = "rose_pine"
+
+[editor]
+end-of-line-diagnostics = "disable"
+line-number = "relative"
+cursorline = true
+bufferline = "multiple"
+color-modes = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.indent-guides]
+render = true
+character = "▏"
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.select = "SELECT"
+mode.insert = "INSERT"
+left = ["mode", "spinner"]
+center = ["file-name", "read-only-indicator", "file-modification-indicator"]
+right = ["diagnostics", "selections", "register", "position", "file-encoding"]
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+[editor.lsp]
+display-inlay-hints = true
+
+[editor.cursor-shape]
+normal = "hidden"
+insert = "bar"
+select = "block"
+
+[keys.normal]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
+
+[keys.select]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
+

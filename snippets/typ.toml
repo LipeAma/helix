@@ -1,0 +1,5 @@
+[[snippets]]
+prefix = "mk"
+scope = ["typ"]
+body = "$ $1$"
+description = "Insert inline math"

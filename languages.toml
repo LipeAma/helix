@@ -1,0 +1,85 @@
+# PYTHON
+[[language]]
+name = "python"
+language-servers = ["ruff", "pylsp"]
+auto-format = true
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.ruff.config.settings]
+configurationPreference = "filesystemFirst"
+line-lenght =  79
+
+[language-server.ruff.config.settings.lint]
+# https://docs.astral.sh/ruff/rules/
+select = ["E","F","W","B","RET", "SLF", "I", "NPY", "N", "PL"]
+exclude = ["W191", "E111", "E114","E117", ]
+
+[language-server-pylsp]
+command = "pylsp"
+
+[language-server.pylsp.config.pylsp]
+plugins.pylsp_mypy.enabled = true
+plugins.pylsp_mypy.live_mode = true
+
+# RUST
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
+
+
+#LATEX
+[language-server.texlab.config.texlab.build]
+onSave = true
+executable = "tectonic"
+args = [
+  "-X",
+  "compile",
+  "%f",
+  "--synctex",
+  "--keep-logs",
+  "--keep-intermediates"
+]
+
+
+#TYPST
+[[language]]
+name = "typst"
+  language-id = "typ"
+file-types = ["typ"]
+language-servers = ["tinymist", "scls"]
+auto-format = true
+
+[language-server.tinymist]
+command = "tinymist"
+
+[language-server.tinymist.config]
+exportPdf = "onSave"
+outputPath = "$root/$dir/$name"
+
+[language-server.tinymist.config.preview]
+browsing.args = ["--data-plane-host=127.0.0.1:23635", "--invert-colors=auto", "--open"]
+background.enabled = true
+
+
+#SNIPPETS
+[language-server.scls]
+command = "simple-completion-language-server"
+
+[language-server.scls.config]
+max_completion_items = 100           # set max completion results len for each group: words, snippets, unicode-input
+feature_words = true                 # enable completion by word
+feature_snippets = true              # enable snippets
+snippets_first = true                # completions will return before snippets by default
+snippets_inline_by_word_tail = false # suggest snippets by WORD tail, for example text `xsq|` become `x^2|` when snippet `sq` has body `^2`
+feature_unicode_input = false        # enable "unicode input"
+feature_paths = false                # enable path completion
+feature_citations = false            # enable citation completion (only on `citation` feature enabled)
+
+[language-server.scls.environment]
+RUST_LOG = "info,simple-completion-language-server=info"
+LOG_FILE = "/tmp/completion.log"
